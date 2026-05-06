@@ -59,7 +59,7 @@ for song_name in song_names:
         # Extract the song lyrics
         song_lyrics = song_lyrics_div.get_text(separator="\n").strip()
 
-        # Remove unwanted lines and empty lines
+        # Remove unwanted and empty lines
         lines = song_lyrics.split("\n")
         cleaned_lyrics = []
         for line in lines:
