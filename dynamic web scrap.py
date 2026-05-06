@@ -53,7 +53,7 @@ def extract_song_details(song_url, song_name):
         print(f"An error occurred while retrieving details for {song_url}: {e}")
 
 
-# Code to extract song names
+# Extract song names
 base_url = "http://www.nepalisongchord.com/"
 
 response = requests.get(base_url)
@@ -74,7 +74,7 @@ for link in links:
         link_response.raise_for_status()
         link_soup = BeautifulSoup(link_response.content, "html.parser")
         
-        # Find the table with class "songlist" inside the link
+        # Find the table with class "songlist" 
         table = link_soup.find("table", class_="songlist")
         
         if table is None:
@@ -84,7 +84,7 @@ for link in links:
         # Find the links inside the table
         song_links = table.find_all("a")
          
-        # Iterate over the song links and extract the song names
+        # extract song names
         for song_link in song_links:
             song_name = song_link.text.strip()
             encoded_song_name = quote(song_name.replace(" ", "_"))
